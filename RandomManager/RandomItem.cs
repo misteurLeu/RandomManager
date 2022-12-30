@@ -20,7 +20,7 @@ public class RandomItem
     public RandomItem()
     {
         _seed = (int)DateTimeOffset.Now.ToUnixTimeSeconds();
-        _random = new Random();
+        _random = new Random(_seed);
     }
 
     public RandomItem(int seed)
