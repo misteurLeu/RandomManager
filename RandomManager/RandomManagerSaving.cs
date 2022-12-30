@@ -14,14 +14,15 @@ public partial class RandomManager
         return toExport;
     }
 
-    public void Import(List<string> toImport)
+    public void Import(List<string> toImport, bool clear = true)
     {
-        Instance.items.Clear();
+        if (clear)
+            Instance.items.Clear();
 
         foreach(string item in toImport)
         {
-            string[] vals = item.Split('=');
-            Instance.items.Add(vals[0], new RandomItem(int.Parse(vals[1])));
+            string[] vals = item.Split(';');
+            Instance.items.Add(vals[0], new RandomItem(int.Parse(vals[1]), int.Parse(vals[2])));
         }
     }
 }

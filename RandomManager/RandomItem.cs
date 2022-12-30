@@ -1,32 +1,38 @@
 using System;
 namespace RandomManager;
 
-public class RandomItem
+public class RandomItem: Random
 {
-
-    private Random _random;
     private int _seed;
-
-    public Random Random
-    {
-        get => _random;
-    }
+    private int _callNumber;
 
     public int Seed
     {
         get => _seed;
     }
 
-    public RandomItem()
+    public int CallNumber
     {
-        _seed = (int)DateTimeOffset.Now.ToUnixTimeSeconds();
-        _random = new Random(_seed);
+        get => _callNumber;
     }
 
-    public RandomItem(int seed)
+    public override int Next()
+    {
+        _callNumber += 1;
+        return base.Next();
+    }
+
+    public RandomItem(int seed): base(seed)
     {
         _seed = seed;
-        _random = new Random(seed);
+        _callNumber = 0;
     }
-
+    
+    public RandomItem(int seed, int numberOfCalls): base(seed)
+    {
+        _seed = seed;
+        _callNumber = numberOfCalls;
+        for(int i = 0; i < numberOfCalls; i++)
+            this.Next();
+    }
 }

@@ -10,8 +10,10 @@ public partial class RandomManager
 
     private RandomManager()
     {
+        int seed = (int)DateTimeOffset.Now.ToUnixTimeSeconds();
+
         items = new Dictionary<string, RandomItem>();
-        items["main"] = new RandomItem();
+        items["main"] = new RandomItem(seed);
     }
 
     public static RandomManager Instance 
@@ -36,14 +38,16 @@ public partial class RandomManager
 
     public static void AddKey(string key)
     {
-        int seed = Instance.items["main"].Random.Next();
+        int seed = Instance.items["main"].Next();
         Instance.items[key] = new RandomItem(seed);
     }
 
     public static void Reset()
     {
+        int seed = (int)DateTimeOffset.Now.ToUnixTimeSeconds();
+
         Instance.items.Clear();
-        Instance.items["main"] = new RandomItem();
+        Instance.items["main"] = new RandomItem(seed);
     }
 
     public static void Reset(int seed)
