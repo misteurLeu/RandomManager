@@ -1,0 +1,12 @@
+/home/jeremy/PRIVATE/Projects/RandomManager/RandomManager/bin/Debug/net6.0/RandomManager.deps.json
+/home/jeremy/PRIVATE/Projects/RandomManager/RandomManager/bin/Debug/net6.0/RandomManager.dll
+/home/jeremy/PRIVATE/Projects/RandomManager/RandomManager/bin/Debug/net6.0/ref/RandomManager.dll
+/home/jeremy/PRIVATE/Projects/RandomManager/RandomManager/bin/Debug/net6.0/RandomManager.pdb
+/home/jeremy/PRIVATE/Projects/RandomManager/RandomManager/obj/Debug/net6.0/RandomManager.csproj.AssemblyReference.cache
+/home/jeremy/PRIVATE/Projects/RandomManager/RandomManager/obj/Debug/net6.0/RandomManager.GeneratedMSBuildEditorConfig.editorconfig
+/home/jeremy/PRIVATE/Projects/RandomManager/RandomManager/obj/Debug/net6.0/RandomManager.AssemblyInfoInputs.cache
+/home/jeremy/PRIVATE/Projects/RandomManager/RandomManager/obj/Debug/net6.0/RandomManager.AssemblyInfo.cs
+/home/jeremy/PRIVATE/Projects/RandomManager/RandomManager/obj/Debug/net6.0/RandomManager.csproj.CoreCompileInputs.cache
+/home/jeremy/PRIVATE/Projects/RandomManager/RandomManager/obj/Debug/net6.0/RandomManager.dll
+/home/jeremy/PRIVATE/Projects/RandomManager/RandomManager/obj/Debug/net6.0/ref/RandomManager.dll
+/home/jeremy/PRIVATE/Projects/RandomManager/RandomManager/obj/Debug/net6.0/RandomManager.pdb
