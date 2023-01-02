@@ -1,6 +1,14 @@
 using System;
 namespace RandomManager;
 
+[Serializable]
+public class ForbiddenKeyException : Exception
+{
+    public ForbiddenKeyException() : base() { }
+    public ForbiddenKeyException(string message) : base(message) { }
+    public ForbiddenKeyException(string message, Exception inner) : base(message, inner) { }
+}
+
 public partial class RandomManager
 {
 
@@ -26,18 +34,23 @@ public partial class RandomManager
         }
     }
 
-    public static void Init(List<string> keys, bool clear = true)
+    public static void Init(List<string> keys, int? seed = null, bool clear = true)
     {
         if (clear)
-            Instance.items.Clear();
-        foreach(string key in keys)
         {
-            AddKey(key);
+            if (seed != null)
+                Reset((int)seed);
+            else
+                Reset();
         }
+        foreach(string key in keys)
+            AddKey(key);
     }
 
     public static void AddKey(string key)
     {
+        if (key == "main")
+            throw new ForbiddenKeyException("The key main is reserved for internal use only");
         int seed = Instance.items["main"].Next();
         Instance.items[key] = new RandomItem(seed);
     }
@@ -54,5 +67,12 @@ public partial class RandomManager
     {
         Instance.items.Clear();
         Instance.items["main"] = new RandomItem(seed);
+    }
+
+    public static int NextKey(string key)
+    {
+        if (key == "main")
+            throw new ForbiddenKeyException("The key main is reserved for internal use only");
+        return Instance.items[key].Next();
     }
 }
